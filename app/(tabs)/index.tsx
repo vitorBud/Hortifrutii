@@ -4,80 +4,82 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
-      
-      
-      <Image source={require('../../assets/images/fruta2.jpg')} style={styles.logo} />
-      
-      
-      <Text style={styles.title}>Favoritos da Galera</Text>
-      <View style={styles.favoritos}>
-        <Image source={require('../../assets/images/fruta1.avif')} style={styles.favoritoItem} />
-        <Image source={require('../../assets/images/fruta2.jpg')} style={styles.favoritoItem} />
-        <Image source={require('../../assets/images/fruta3.jpeg')} style={styles.favoritoItem} />
-      </View>
-      
-      
-      <View style={styles.cupomBox}>
-        <Text style={styles.cupomText}>Resgate Cupom</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progress} />
+    <View style={styles.mainContainer}>
+      <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+        
+        <Image source={require('../../assets/images/banner.png')} style={styles.logo} />
+        
+        <Text style={styles.title}>Favoritos da Galera</Text>
+        <View style={styles.favoritos}>
+          <Image source={require('../../assets/images/fruta4.webp')} style={styles.favoritoItem} />
+          <Image source={require('../../assets/images/fruta2.jpg')} style={styles.favoritoItem} />
+          <Image source={require('../../assets/images/fruta3.jpeg')} style={styles.favoritoItem} />
         </View>
-      </View>
-
-      {/* Loja do Seu Zé */}
-      <View style={styles.lojaBox}>
-      <Image source={require('../../assets/images/fruta4.webp')} style={styles.lojaImage} />
-        <View>
-          <Text style={styles.lojaTitle}>Loja do Seu Zé</Text>
-          <Text style={styles.lojaSubTitle}>Está perto de você!</Text>
+        
+        <View style={styles.cupomBox}>
+          <Text style={styles.cupomText}>Resgate Cupom</Text>
+          <View style={styles.progressBar}>
+            <View style={styles.progress} />
+          </View>
         </View>
-      </View>
 
-      
-      <View style={styles.promoButtons}>
-        <TouchableOpacity style={styles.btnOrange}>
-          <Ionicons name="cart" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnRed}>
-          <Text style={styles.btnText}>50% De Desconto</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnYellow}>
-          <Text style={styles.btnText}>Frete Grátis</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.lojaBox}>
+          <Image source={require('../../assets/images/fruta1.avif')} style={styles.lojaImage} />
+          <View>
+            <Text style={styles.lojaTitle}>Loja do Seu Zé</Text>
+            <Text style={styles.lojaSubTitle}>Está perto de você!</Text>
+          </View>
+        </View>
 
-      {/* Menu Inferior */}
+        <View style={styles.promoButtons}>
+          <TouchableOpacity style={styles.btnOrange}>
+            <Ionicons name="cart" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnRed}>
+            <Text style={styles.btnText}>50% De Desconto</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnYellow}>
+            <Text style={styles.btnText}>Frete Grátis</Text>
+          </TouchableOpacity>
+        </View>
+
+      </ScrollView>
+
       <View style={styles.bottomMenu}>
-        <TouchableOpacity>
-          <Ionicons name="home" size={30} color="black" />
+        <TouchableOpacity style={styles.menuItem}>
+          <Ionicons name="home" size={24} color="black" />
           <Text>Início</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="search" size={30} color="black" />
+        <TouchableOpacity style={styles.menuItem}>
+          <Ionicons name="search" size={24} color="black" />
           <Text>Busca</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="receipt" size={30} color="black" />
+        <TouchableOpacity style={styles.menuItem}>
+          <Ionicons name="receipt" size={24} color="black" />
           <Text>Pedidos</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Ionicons name="person" size={30} color="black" />
+        <TouchableOpacity style={styles.menuItem}>
+          <Ionicons name="person" size={24} color="black" />
           <Text>Perfil</Text>
         </TouchableOpacity>
       </View>
-
-    </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
   },
+  container: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: 80,
+  },
   logo: {
-    width: 200,
+    width: '70%',
     height: 70,
     alignSelf: 'center',
     marginTop: 20,
@@ -86,14 +88,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
     margin: 15,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   favoritos: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     marginBottom: 20,
   },
   favoritoItem: {
-    width: 90,
+    width: '30%',
     height: 90,
     borderRadius: 10,
   },
@@ -167,8 +170,13 @@ const styles = StyleSheet.create({
   bottomMenu: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     borderTopWidth: 1,
-    paddingTop: 10,
-    paddingBottom: 20,
+    borderTopColor: '#ccc',
+    height: 60,
+    backgroundColor: 'white',
   },
+  menuItem: {
+    alignItems: 'center',
+  }
 });
